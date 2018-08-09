@@ -1,22 +1,43 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 
-const connection = mysql.createConnection({
+var connection = mysql.createConnection({
     host: "localhost",
-    port: 3306,
+    port: 3310,
     user: "root",
     password: "",
-    database: "greatBuyDB"
+    database: "bamazonDB"
   });
+
   connection.connect(function(err) {
     if (err) throw err;
     console.log("connected as id " + connection.threadId + "\n");
-    afterConnection();
+     start();
   });
-  function afterConnection() {
-    connection.query("SELECT * FROM products", function(err, res) {
-      if (err) throw err;
-      console.log(res);
-      connection.end();
-    });
-  }
+  
+function start() {
+   connection.query("SELECT * FROM products", function(err, res) {
+    for (var i = 0; i < res.length; i++) {
+      console.log(res[i].id )
+    }
+          console.log(res);
+    })
+      };
+   inquirer
+       .prompt([
+         {
+           name: "id",
+           type: "input",
+           message: "What is the id of the item you would like to buy?", 
+         },
+         {
+           name: "quantity",
+           type: "input",
+           message: "How many would you like to buy?"
+         }
+       ])
+     .then(function(anwser) {
+        console.log(anwser)
+       }
+     );
+    // 

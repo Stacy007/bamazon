@@ -12,9 +12,6 @@ CREATE TABLE products (
 );
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ();
-
-INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("table", "dining", 300, 30);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
@@ -22,6 +19,9 @@ VALUES ("chair", "dining", 50, 100);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("plate", "dining", 10, 100);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("bowl", "dining", 8, 75);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("cup", "dining", 5, 100);
@@ -41,6 +41,7 @@ VALUES ("knife", "dining", 4, 80);
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("napkin", "dining", 10, 100);
 
+SELECT * FROM products
 -- item_id (unique id for each product)
 -- product_name (Name of product)
 -- department_name
